@@ -30,8 +30,6 @@
                 deferred.reject(error);
             };
 
-            deferred.resolve(mockRanking);
-
             return deferred.promise;
 
         };
