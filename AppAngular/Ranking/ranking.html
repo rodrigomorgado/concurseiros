@@ -1,0 +1,17 @@
+﻿<table border="1">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Nota</th>
+        </tr>
+
+    </thead>
+
+    <tbody ng-repeat="candidate in rankingCtrl.candidateRanking | orderBy: '-score'">
+        <tr>
+            <td>{{candidate.name}}</td>
+            <td>{{candidate.score}}</td>
+        </tr>
+    </tbody>
+
+</table>
