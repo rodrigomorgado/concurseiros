@@ -1,9 +1,9 @@
 (function () {
     angular.module('Concurseiros').controller('InsertScoreController', InsertScoreController);
     
-    InsertScoreController.$inject = ['InsertScoreService', '$location']
+    InsertScoreController.$inject = ['InsertScoreService', '$location', 'toastr']
 
-    function InsertScoreController(InsertScoreService, $location) {
+    function InsertScoreController(InsertScoreService, $location, toastr) {
         var self = this;
 
         //definicao dos objetos bindados e metodos do controller
@@ -15,11 +15,11 @@
             InsertScoreService.insertCandidateScore(self.candidateData).then(successCallback, errorCallback);
 
             function successCallback(data) {
-
+                toastr.success('Nota inserida com sucesso!');
             };
 
             function errorCallback(error) {
-
+                toastr.error('Erro ao inserir a nota.');
             };
         };
     }

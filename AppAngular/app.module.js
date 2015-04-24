@@ -1,5 +1,7 @@
 (function () {
     angular.module('Concurseiros', [
-        'ngRoute'
+        'ngRoute',
+        'ui.bootstrap',
+        'toastr'
     ]);
 })();
