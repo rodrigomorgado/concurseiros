@@ -16,6 +16,7 @@
 
             function successCallback(data) {
                 toastr.success('Nota inserida com sucesso!');
+                $location.path('/ranking');
             };
 
             function errorCallback(error) {
