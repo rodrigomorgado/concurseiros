@@ -1,0 +1,8 @@
+﻿<form name="insertScore">
+    <input type="text" name="name" placeholder="Insira seu nome" ng-model="insertScoreCtrl.candidateData.name" />
+    <input type="email" name="email" placeholder="Insira seu email" ng-model="insertScoreCtrl.candidateData.email" />
+    <input type="number" min="0" name="score" placeholder="Insira sua nota" ng-model="insertScoreCtrl.candidateData.score" />
+    <button ng-click="insertScoreCtrl.insertUserScore()">Clique</button>
+</form>
+
+<a href="#/ranking">Ranking</a>

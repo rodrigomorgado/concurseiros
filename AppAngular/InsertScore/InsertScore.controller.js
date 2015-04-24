@@ -1,9 +1,9 @@
 (function () {
-    angular.module('Concurseiros').controller('HomeController', HomeController);
+    angular.module('Concurseiros').controller('InsertScoreController', InsertScoreController);
     
-    HomeController.$inject = ['HomeService', '$location']
+    InsertScoreController.$inject = ['InsertScoreService', '$location']
 
-    function HomeController(HomeService, $location) {
+    function InsertScoreController(InsertScoreService, $location) {
         var self = this;
 
         //definicao dos objetos bindados e metodos do controller
@@ -12,7 +12,7 @@
 
         //implementacao dos metodos do controller
         function insertUserScore() {
-            HomeService.insertUserScore(self.candidateData).then(successCallback, errorCallback);
+            InsertScoreService.insertCandidateScore(self.candidateData).then(successCallback, errorCallback);
 
             function successCallback(data) {
 

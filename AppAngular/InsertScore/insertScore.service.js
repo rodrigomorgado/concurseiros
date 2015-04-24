@@ -1,19 +1,19 @@
 ﻿(function () {
-    angular.module('Concurseiros').service('HomeService', HomeService);
+    angular.module('Concurseiros').service('InsertScoreService', InsertScoreService);
 
-    HomeService.$inject = ['$http', '$q'];
+    InsertScoreService.$inject = ['$http', '$q'];
 
-    function HomeService($http, $q) {
+    function InsertScoreService($http, $q) {
 
         //definicao dos metodos do servico
         var service = {
-            insertUserScore: insertUserScore
+            insertCandidateScore: insertCandidateScore
         };
 
         return service;
 
         // implementacao das funcoes do servico
-        function insertUserScore(candidateData) {
+        function insertCandidateScore(candidateData) {
             var deferred = $q.defer();
 
             $http.post('/api/insertScore', candidateData).success(successfulCallback).error(errorCallback);

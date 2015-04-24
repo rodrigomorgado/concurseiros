@@ -1,8 +1,4 @@
-(function () {
-    angular.module('Concurseiros', [
-        'ngRoute'
-    ]);
-
+﻿(function () {
     angular.module('Concurseiros').config(config);
 
 
@@ -10,9 +6,9 @@
     function config($routeProvider) {
         $routeProvider
           .when('/', {
-              controller: 'HomeController',
-              templateUrl: 'AppAngular/Home/home.html',
-              controllerAs: 'homeCtrl'
+              controller: 'InsertScoreController',
+              templateUrl: 'AppAngular/InsertScore/insertScore.html',
+              controllerAs: 'insertScoreCtrl'
           })
           .when('/ranking', {
               controller: 'RankingController',
@@ -23,5 +19,4 @@
               redirectTo: '/'
           });
     };
-
 })();
