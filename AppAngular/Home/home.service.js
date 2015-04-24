@@ -16,7 +16,7 @@
         function insertUserScore(candidateData) {
             var deferred = $q.defer();
 
-            $http.post('/api/', candidateData).success(successfulCallback).error(errorCallback);
+            $http.post('/api/insertScore', candidateData).success(successfulCallback).error(errorCallback);
 
             function successfulCallback() {
                 deferred.resolve();
