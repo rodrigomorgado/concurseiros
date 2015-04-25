@@ -1,10 +1,27 @@
 var http = require('http'),
     fs = require('fs'),
+    express = require('express'),
+    url = require('url'),
     sconf = require('./config/server');
 
-var server = http.createServer(function (req, res) {
-    res.writeHead(200, { 'content-type': 'text/html' })
-    fs.createReadStream(sconf.basepath + sconf.index).pipe(res);
+var app = express();
+
+app.get('/', function (req, res) {
+    var reqUrl = url.parse(req.url, true);
+    console.log(reqUrl.pathname);
+    fs.createReadStream(sconf.root + sconf.index).pipe(res);
 });
 
-server.listen(sconf.port);
+app.get('/scripts/*', function (req, res) {
+    var reqUrl = url.parse(req.url, true);
+    console.log(reqUrl.pathname);
+    fs.createReadStream(sconf.root + reqUrl.pathname).pipe(res);
+});
+
+app.get('/AppAngular/*', function (req, res) {
+    var reqUrl = url.parse(req.url, true);
+    console.log(reqUrl.pathname);
+    fs.createReadStream(sconf.root + reqUrl.pathname).pipe(res);
+});
+
+app.listen(sconf.port);
