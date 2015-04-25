@@ -1,4 +1,4 @@
 module.exports = {
     port : 8000,
-    default_file : 'index.html'
+    default_file : '/index.html'
 };
