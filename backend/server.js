@@ -10,11 +10,13 @@ var app = express();
 app.get('/', function (req, res) {
     var reqUrl = url.parse(req.url, true);
     fs.createReadStream(cconf.web + sconf.default_file).pipe(res);
+    res.end();
 });
 
 app.get('/*', function (req, res) {
     var reqUrl = url.parse(req.url, true);
     fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
+    res.end();
 });
 
 
