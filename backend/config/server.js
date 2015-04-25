@@ -1,5 +1,5 @@
 module.exports = {
     port : 8000,
-    basepath : '../',
-    index : 'index.html'
+    root : '..',
+    index : '/index.html'
 };
