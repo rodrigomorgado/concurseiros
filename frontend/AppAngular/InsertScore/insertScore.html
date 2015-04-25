@@ -25,7 +25,7 @@
     <span class="help-block" ng-show="insertScore.score.$error.number && insertScore.score.$dirty">A nota deve ser um valor numérico</span>
     <br />
 
-    <input type="submit" class="btn btn-success" ng-click="insertScoreCtrl.insertUserScore()" />
+    <input type="submit" class="btn btn-success" ng-click="insertScoreCtrl.insertUserScore()" ng-disabled="insertScore.$invalid"/>
 
 </form>
 
