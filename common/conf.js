@@ -1,3 +1,5 @@
 module.exports = {
-    public = 'frontend/'
+    root : '../',
+    web : '../frontend/',
+    backend : '../backend/'
 };
