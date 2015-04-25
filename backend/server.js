@@ -3,25 +3,19 @@ var http = require('http'),
     express = require('express'),
     url = require('url'),
     sconf = require('./config/server');
+    cconf = require('../common/conf.js');
 
 var app = express();
 
 app.get('/', function (req, res) {
     var reqUrl = url.parse(req.url, true);
-    console.log(reqUrl.pathname);
-    fs.createReadStream(sconf.root + sconf.index).pipe(res);
+    fs.createReadStream(cconf.web + sconf.default_file).pipe(res);
 });
 
-app.get('/scripts/*', function (req, res) {
+app.get('/*', function (req, res) {
     var reqUrl = url.parse(req.url, true);
-    console.log(reqUrl.pathname);
-    fs.createReadStream(sconf.root + reqUrl.pathname).pipe(res);
+    fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
 });
 
-app.get('/AppAngular/*', function (req, res) {
-    var reqUrl = url.parse(req.url, true);
-    console.log(reqUrl.pathname);
-    fs.createReadStream(sconf.root + reqUrl.pathname).pipe(res);
-});
 
 app.listen(sconf.port);
