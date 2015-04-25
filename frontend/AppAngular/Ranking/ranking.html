@@ -1,14 +1,16 @@
-﻿<table border="1">
+﻿<table class="table table-bordered table-hover table-responsive table-striped">
     <thead>
         <tr>
-            <th>Nome</th>
-            <th>Nota</th>
+            <th>Posição</th>
+            <th>Nome do candidato</th>
+            <th>Nota obtida</th>
         </tr>
 
     </thead>
 
     <tbody ng-repeat="candidate in rankingCtrl.candidateRanking | orderBy: '-score'">
         <tr>
+            <td>{{$index + 1}}</td>
             <td>{{candidate.name}}</td>
             <td>{{candidate.score}}</td>
         </tr>
