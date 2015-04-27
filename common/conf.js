@@ -1,5 +1,5 @@
 module.exports = {
-    root : '../',
-    web : '../frontend/',
-    backend : '../backend/'
+    root : __dirname + '/..',
+    web : __dirname + '/../frontend',
+    backend : __dirname + '/../backend'
 };
