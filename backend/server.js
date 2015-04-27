@@ -2,10 +2,14 @@ var http = require('http'),
     fs = require('fs'),
     express = require('express'),
     url = require('url'),
+    mysql = require('mysql'),
     sconf = require('./config/server'),
-    cconf = require('../common/conf.js');
+    cconf = require('../common/conf.js'),
+    endpoint = require('../common/endpoint.js');
 
-var app = express();
+var app = express(),
+    connection = mysql.createConnection(sconf.mysql);
+
 
 app.get('/', function (req, res) {
     var reqUrl = url.parse(req.url, true);
@@ -38,5 +42,33 @@ app.get('/AppAngular/*', function (req, res) {
     fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
 });
 
+app.get(endpoint.getRanking, function (req, res) {
+    connection.query('SELECT name, email, score FROM users ORDER BY score', function(err, rows, fields) {
+	connection.end();
+	  if (!err){
+	    //Returns the rows to the user with a status code 200
+	    res.status(200).end(JSON.stringify(rows));
+	  }
+	  else {
+	  	//Query failed. Send a status code 500
+	    res.status(500);
+	  }
+
+	});
+});
+
+app.post(endpoint.insertScore, function (req, res) {
+     var user = JSON.parse(req);
+    connection.query('INSERT INTO users SET ?' user, function(err) {
+	connection.end();
+	  if (!err){
+	    //Returns nothing to the user with a status code 200
+	    res.status(200).end();
+	  }
+	  else {
+	  	//Query failed. Send a status code 500
+	    res.status(500);
+	  }    
+});
 
 app.listen(sconf.port);
