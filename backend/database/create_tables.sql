@@ -1,10 +1,7 @@
-CREATE TABLE user (
+CREATE TABLE users (
     id INT PRIMARY KEY auto_increment,
     name VARCHAR(128),
-    email VARCHAR(128)
-);
-
-CREATE TABLE scores (
-    user_id PRIMARY KEY,
+    email VARCHAR(128),
     score DOUBLE,
+
 );
