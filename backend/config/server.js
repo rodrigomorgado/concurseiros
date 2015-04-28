@@ -3,7 +3,7 @@ module.exports = {
     default_file : '/index.html',
     mysql: {
 	  host     : 'localhost',
-	  user     : 'root',
+	  user     : 'concurseiro',
 	  password : 'concurseiro',
 	  database : 'concurseiro'
 	}
