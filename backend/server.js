@@ -34,6 +34,12 @@ app.get('/styles/*', function (req, res) {
     fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
 });
 
+app.get('/images/*', function (req, res) {
+    var reqUrl = url.parse(req.url, true);
+    res.writeHead(200);
+    fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);    
+});
+
 app.get('/AppAngular/*', function (req, res) {
     var reqUrl = url.parse(req.url, true);
     res.writeHead(200, { 'content-type': 'text/javascript' });
