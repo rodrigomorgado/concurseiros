@@ -3,11 +3,14 @@ var http = require('http'),
     express = require('express'),
     url = require('url'),
     mysql = require('mysql'),
+    bodyParse = require('bodyParser'),
     sconf = require('./config/server'),
     cconf = require('../common/conf.js'),
     endpoint = require('../common/endpoint.js');
 
 var app = express();
+
+app.use(bodyParse.json());
 
 app.get('/', function (req, res) {
     var reqUrl = url.parse(req.url, true);
@@ -62,9 +65,8 @@ app.get(endpoint.getRanking, function (req, res) {
 });
 
 app.post(endpoint.insertScore, function (req, res) {
-    var user = JSON.parse(req),
     connection = mysql.createConnection(sconf.mysql);
-    connection.query('INSERT INTO users SET ?', user, function (err) {
+    connection.query('INSERT INTO users SET ?', res.body, function (err) {
         connection.end();
         if (!err) {
             //Returns nothing to the user with a status code 200
