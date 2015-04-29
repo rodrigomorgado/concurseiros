@@ -3,11 +3,14 @@ var http = require('http'),
     express = require('express'),
     url = require('url'),
     mysql = require('mysql'),
+    bodyParse = require('body-parser'),
     sconf = require('./config/server'),
     cconf = require('../common/conf.js'),
     endpoint = require('../common/endpoint.js');
 
 var app = express();
+
+app.use(bodyParse.json());
 
 app.get('/', function (req, res) {
     var reqUrl = url.parse(req.url, true);
@@ -34,6 +37,12 @@ app.get('/styles/*', function (req, res) {
     fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
 });
 
+app.get('/images/*', function (req, res) {
+    var reqUrl = url.parse(req.url, true);
+    res.writeHead(200);
+    fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);    
+});
+
 app.get('/AppAngular/*', function (req, res) {
     var reqUrl = url.parse(req.url, true);
     res.writeHead(200, { 'content-type': 'text/javascript' });
@@ -56,13 +65,12 @@ app.get(endpoint.getRanking, function (req, res) {
 });
 
 app.post(endpoint.insertScore, function (req, res) {
-    var user = JSON.parse(req),
     connection = mysql.createConnection(sconf.mysql);
-    connection.query('INSERT INTO users SET ?', user, function (err) {
+    connection.query('INSERT INTO users SET ?', req.body, function (err) {
         connection.end();
         if (!err) {
             //Returns nothing to the user with a status code 200
-            res.status(200).end();
+            res.status(200).end('ok');
         } else {
             //Query failed. Send a status code 500
             res.status(500);
