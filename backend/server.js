@@ -66,7 +66,7 @@ app.get(endpoint.getRanking, function (req, res) {
 
 app.post(endpoint.insertScore, function (req, res) {
     connection = mysql.createConnection(sconf.mysql);
-    connection.query('INSERT INTO users (name,email,score) SET ?', req.body, function (err) {
+    connection.query('INSERT INTO users SET ?', req.body, function (err) {
         connection.end();
         if (!err) {
             //Returns nothing to the user with a status code 200
