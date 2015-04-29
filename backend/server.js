@@ -70,9 +70,11 @@ app.post(endpoint.insertScore, function (req, res) {
         connection.end();
         if (!err) {
             //Returns nothing to the user with a status code 200
-            res.status(200).end();
+            console.log('ok');
+            res.status(200).end('ok');
         } else {
             //Query failed. Send a status code 500
+            console.log('error');
             res.status(500);
             res.end(err);
         }
