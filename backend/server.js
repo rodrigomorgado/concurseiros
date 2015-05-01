@@ -56,7 +56,7 @@ app.get('/AppAngular/*', function (req, res) {
 
 app.get(endpoint.getRanking, function (req, res) {
     var connection = mysql.createConnection(sconf.mysql);
-    connection.query('SELECT name, email, score FROM users ORDER BY score', function (err, rows, fields) {
+    connection.query('SELECT name, email, score FROM users', function (err, rows, fields) {
         connection.end();
         if (!err) {
             //Returns the rows to the user with a status code 200
