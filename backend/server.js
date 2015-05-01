@@ -37,6 +37,11 @@ app.get('/styles/*', function (req, res) {
     fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
 });
 
+app.get('/fonts/*', function (req, res) {
+    var reqUrl = url.parse(req.url, true);
+    fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
+});
+
 app.get('/images/*', function (req, res) {
     var reqUrl = url.parse(req.url, true);
     res.writeHead(200);
