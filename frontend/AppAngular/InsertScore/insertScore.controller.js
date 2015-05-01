@@ -16,7 +16,7 @@
 
             function successCallback(data) {
                 toastr.success('Nota inserida com sucesso!');
-                $location.path('/ranking');
+                $location.path('/concursoXPTO/ranking');
             };
 
             function errorCallback(error) {
