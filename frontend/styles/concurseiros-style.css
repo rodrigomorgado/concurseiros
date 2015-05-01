@@ -1,4 +1,6 @@
-﻿input[type=number]::-webkit-inner-spin-button,
+﻿
+/* css para tirar o scroll do input number do chrome e do firefox */
+input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
@@ -6,3 +8,42 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
     -moz-appearance:textfield;
 }
+
+@media (max-width: 767px){ /* estilo especial para smartphone*/
+    .additional-information{
+        text-align:center;
+    }
+
+    .div-trans{
+        margin-top: 10px;
+    }
+
+    #home h1{
+        padding-top: 100px;
+    }
+
+}
+
+@media(min-width:768px) and (max-width:991px){ /* estilo especial para tablet */
+    .additional-information{
+        text-align:center;
+    }
+
+    .div-trans{
+        margin-top: 10px;
+    }
+
+    #home h1{
+        padding-top: 100px;
+    }
+}
+
+@media(min-width:992px) and (max-width: 1999px){ /* estilo especial para monitores pequenos */
+    .div-trans{
+        min-height: 450px;
+    }
+}
+
+@media(min-width:1200px){ /* estilo especial para monitores grandes */
+
+} 
