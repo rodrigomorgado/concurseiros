@@ -17,12 +17,10 @@ module.exports = function(config) {
     files: [
       //initial scripts
       "scripts/angular.min.js",
-      "scripts/angular.min.js.map",
       "scripts/angular-mocks.js",
       "scripts/jquery-1.11.2.min.js",
       "scripts/bootstrap.min.js",
       "scripts/angular-route.min.js",
-      "scripts/angular-route.min.js.map",
       "scripts/ui-bootstrap-tpls-0.12.1.min.js",
       "scripts/angular-toastr.tpls.min.js",
       "scripts/wow.min.js",
