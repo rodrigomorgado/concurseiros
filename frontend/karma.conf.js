@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       //initial scripts
       "scripts/angular.min.js",
+      "scripts/angular-mocks.js",
       "scripts/jquery-1.11.2.min.js",
       "scripts/bootstrap.min.js",
       "scripts/angular-route.min.js",
