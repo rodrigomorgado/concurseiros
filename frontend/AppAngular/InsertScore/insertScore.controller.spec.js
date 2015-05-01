@@ -1,4 +1,4 @@
-﻿describe('InsertScore controller tests', function () {
+﻿describe('InsertScore - Controller', function () {
 
     //carrega o modulo do projeto
     beforeEach(module('Concurseiros'));
@@ -16,19 +16,16 @@
     var defer;
 
     //injeta os servicos que serao usados nos testes
-    beforeEach(inject(function (_$controller_, _$rootScope_, _$q_) {
+    beforeEach(inject(function (_$controller_, _$rootScope_, _$q_, _$location_) {
         $controller = _$controller_;
         $rootScope = _$rootScope_;
         $q = _$q_;
+        $location = _$location_;
     }));
 
     
 
     beforeEach(function () {
-        //define um objeto com os métodos da dependencia do controller que serao usados
-        $location = {
-            path: function (chave) { }
-        };
 
         //spy para ver se o método será chamado
         spyOn($location, "path");
@@ -64,11 +61,10 @@
         it("Chama o service", function () {
             //verificacao
             expect(InsertScoreService.insertCandidateScore).toHaveBeenCalledWith({});
-
-
         });
+
         it('Chama o toastr', function () {
-            //linhas para que ele entre no 'then' do metodo do politicaService chamado no controller
+            //linhas para que ele entre no 'then' do metodo do insertScoreService chamado no controller
             defer.resolve({});
             $rootScope.$digest();
 
@@ -76,7 +72,7 @@
             expect(toastr.success).toHaveBeenCalledWith('Nota inserida com sucesso!');
         });
         it('Muda a rota para o ranking', function () {
-            //linhas para que ele entre no 'then' do metodo do politicaService chamado no controller
+            //linhas para que ele entre no 'then' do metodo do insertScoreService chamado no controller
             defer.resolve({});
             $rootScope.$digest();
 
