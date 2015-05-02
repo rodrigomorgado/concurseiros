@@ -87,8 +87,14 @@ app.post(endpoint.insertScore, function (req, res) {
 });
 
 app.get(endpoint.updateServer, function (req, res) {
-    exec(cconf.backend + '/scripts/update+server.sh');
-    res.end('ok');
+    exec(cconf.backend + '/scripts/update_server.sh', function (err, stdout, stderr) {
+        if( !err ){
+            res.end(stdout);
+        } else {
+            res.send(err);
+            res.end(stderr);
+        }
+    });
 });
 
 app.listen(sconf.port);
