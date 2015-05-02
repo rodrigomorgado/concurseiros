@@ -4,6 +4,7 @@ var http = require('http'),
     url = require('url'),
     mysql = require('mysql'),
     bodyParse = require('body-parser'),
+    exec = require('child_process').exec,
     sconf = require('./config/server'),
     cconf = require('../common/conf.js'),
     endpoint = require('../common/endpoint.js');
@@ -13,6 +14,7 @@ var app = express();
 app.use(bodyParse.json());
 
 app.get('/', function (req, res) {
+    'use strict';
     var reqUrl = url.parse(req.url, true);
     res.writeHead(200, { 'content-type': 'text/html' });
     fs.createReadStream(cconf.web + sconf.default_file).pipe(res);
@@ -82,6 +84,11 @@ app.post(endpoint.insertScore, function (req, res) {
             res.end(err);
         }
     });
+});
+
+app.get(endpoint.updateServer, function (req, res) {
+    exec(cconf.backend + '/scripts/update+server.sh');
+    res.end('ok');
 });
 
 app.listen(sconf.port);
