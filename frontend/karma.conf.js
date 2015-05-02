@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       //initial scripts
       "scripts/angular.min.js",
+      "scripts/angular-mocks.js",
       "scripts/jquery-1.11.2.min.js",
       "scripts/bootstrap.min.js",
       "scripts/angular-route.min.js",
@@ -42,7 +43,9 @@ module.exports = function(config) {
       
       //Tests
       "AppAngular/InsertScore/insertScore.controller.spec.js",
-      
+      "AppAngular/InsertScore/insertScore.service.spec.js",
+      "AppAngular/Ranking/ranking.controller.spec.js",
+      "AppAngular/Ranking/ranking.service.spec.js",
     ],
 
 

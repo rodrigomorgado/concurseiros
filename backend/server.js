@@ -21,7 +21,6 @@ app.get('/', function (req, res) {
 });
 
 app.get('/favicon.ico', function (req, res) {
-    var reqUrl = url.parse(req.url, true);
     res.writeHead(200, { 'content-type': 'image/x-icon' });
     fs.createReadStream(cconf.web + 'images' + sconf.default_file).pipe(res);
 });
@@ -58,7 +57,7 @@ app.get('/AppAngular/*', function (req, res) {
 
 app.get(endpoint.getRanking, function (req, res) {
     var connection = mysql.createConnection(sconf.mysql);
-    connection.query('SELECT name, email, score FROM users ORDER BY score', function (err, rows, fields) {
+    connection.query('SELECT name, email, score FROM users', function (err, rows, fields) {
         connection.end();
         if (!err) {
             //Returns the rows to the user with a status code 200
@@ -72,7 +71,7 @@ app.get(endpoint.getRanking, function (req, res) {
 });
 
 app.post(endpoint.insertScore, function (req, res) {
-    connection = mysql.createConnection(sconf.mysql);
+    var connection = mysql.createConnection(sconf.mysql);
     connection.query('INSERT INTO users SET ?', req.body, function (err) {
         connection.end();
         if (!err) {

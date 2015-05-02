@@ -1,0 +1,12 @@
+{
+	"name": "Concurseiros-Backend-Dependencies",
+	"version": "0.0.1",
+	"description": "Dependency packages for node js backend",
+	"author": "Rodrigo Morgado",
+	"dependencies": {
+		"body-parser": "~1.12.3",
+		"express": "~4.12.3",
+		"mysql": "~2.6.2"
+	},
+	"private": true
+}

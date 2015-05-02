@@ -109,30 +109,30 @@ background-color: #fff;
 /*=====================================
  HOME SECTION
     ===================================*/
-#home{
+.home{
 background: url(../images/concurso.jpg) no-repeat center center;
 padding: 0;
 -webkit-background-size: cover;
 background-size: cover;
 }
-    #home h1 {
+    .home h1 {
         padding:150px 20px 20px 0px;
         color:#ff0000;
         font-size:40px;
         font-weight:900;
 
     }
-    #home .head-text span {
+    .home .head-text span {
         display: block; 
         font-size: 25px; 
         color: #fff; 
         margin-bottom: 25px;
     }
-        #home .head-text span >i {
+        .home .head-text span >i {
              margin-right: 10px; 
              color: #159238;
         }
-     #home p {
+     .home p {
         padding:10px 20px 20px 20px;
         color:#fff;
         font-size:16px;
@@ -140,11 +140,11 @@ background-size: cover;
         font-weight:800;       
        text-align:center;
     }
-    #home .overlay {
+    .home .overlay {
               background:rgba(0, 0, 0, 0.7);        
         min-height:900px;
     }
-    #home h3 {
+    .home h3 {
         color:#fff;
     }
     .div-trans {
@@ -169,7 +169,7 @@ margin-bottom: 30px;
         .div-trans button {
             background-color: #159238;
         }
-#home .form-control {
+.home .form-control {
     background-color:transparent;
 }
 

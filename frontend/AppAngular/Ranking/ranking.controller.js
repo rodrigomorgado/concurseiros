@@ -1,9 +1,9 @@
 (function () {
     angular.module('Concurseiros').controller('RankingController', RankingController);
 
-    RankingController.$inject = ['RankingService', 'toastr']
+    RankingController.$inject = ['RankingService', 'toastr', '$anchorScroll', '$location']
 
-    function RankingController(RankingService, toastr) {
+    function RankingController(RankingService, toastr, $anchorScroll, $location) {
         var self = this;
 
         //definicao dos objetos bindados e metodos do controller
@@ -14,6 +14,10 @@
 
         //implementacao dos metodos do controller
         function activate() {
+
+            $location.hash('rankingDiv');
+            $anchorScroll();
+
             RankingService.getRanking().then(successCallback, errorCallback);
 
             function successCallback(data) {

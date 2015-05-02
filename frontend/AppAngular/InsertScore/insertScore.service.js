@@ -18,12 +18,12 @@
 
             $http.post('/api/insertScore', candidateData).success(successfulCallback).error(errorCallback);
 
-            function successfulCallback() {
-                deferred.resolve();
+            function successfulCallback(data) {
+                deferred.resolve(data);
             }
 
-            function errorCallback() {
-                deferred.reject();
+            function errorCallback(error) {
+                deferred.reject(error);
             }
 
             return deferred.promise;
