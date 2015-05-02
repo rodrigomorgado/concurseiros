@@ -21,41 +21,48 @@ app.get('/', function (req, res) {
 });
 
 app.get('/favicon.ico', function (req, res) {
+    'use strict';
     res.writeHead(200, { 'content-type': 'image/x-icon' });
     fs.createReadStream(cconf.web + 'images' + sconf.default_file).pipe(res);
 });
 
 
 app.get('/scripts/*', function (req, res) {
+    'use strict';
     var reqUrl = url.parse(req.url, true);
     res.writeHead(200, { 'content-type': 'text/javascript' });
     fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
 });
 
 app.get('/styles/*', function (req, res) {
+    'use strict';
     var reqUrl = url.parse(req.url, true);
     res.writeHead(200, { 'content-type': 'text/css' });
     fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
 });
 
 app.get('/fonts/*', function (req, res) {
+    'use strict';
     var reqUrl = url.parse(req.url, true);
     fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
 });
 
 app.get('/images/*', function (req, res) {
+    'use strict';
     var reqUrl = url.parse(req.url, true);
     res.writeHead(200);
-    fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);    
+    fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
 });
 
 app.get('/AppAngular/*', function (req, res) {
+    'use strict';
     var reqUrl = url.parse(req.url, true);
     res.writeHead(200, { 'content-type': 'text/javascript' });
     fs.createReadStream(cconf.web + reqUrl.pathname).pipe(res);
 });
 
 app.get(endpoint.getRanking, function (req, res) {
+    'use strict';
     var connection = mysql.createConnection(sconf.mysql);
     connection.query('SELECT name, email, score FROM users', function (err, rows, fields) {
         connection.end();
@@ -71,6 +78,7 @@ app.get(endpoint.getRanking, function (req, res) {
 });
 
 app.post(endpoint.insertScore, function (req, res) {
+    'use strict';
     var connection = mysql.createConnection(sconf.mysql);
     connection.query('INSERT INTO users SET ?', req.body, function (err) {
         connection.end();
@@ -86,8 +94,9 @@ app.post(endpoint.insertScore, function (req, res) {
 });
 
 app.get(endpoint.updateServer, function (req, res) {
+    'use strict';
     exec(cconf.backend + '/scripts/update_server.sh', function (err, stdout, stderr) {
-        if( !err ){
+        if (!err) {
             res.end(stdout);
         } else {
             res.send(err);
