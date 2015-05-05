@@ -2,6 +2,7 @@
     angular.module('Concurseiros', [
         'ngRoute',
         'ui.bootstrap',
-        'toastr'
+        'toastr',
+        'blockUI'
     ]);
 })();
