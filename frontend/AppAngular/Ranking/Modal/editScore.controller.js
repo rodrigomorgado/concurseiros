@@ -8,9 +8,9 @@
 
         self.candidateData = candidateData;
 
-        self.updateNota = updateNota;
+        self.editScore = editScore;
 
-        function updateNota() {
+        function editScore() {
             EditScoreService.editScore(self.candidateData).then(successfulCallback, errorCallback);
 
             function successfulCallback(data) {
@@ -19,7 +19,13 @@
             };
 
             function errorCallback(errorMessage) {
-                toastr.error("O email inserido não é válido");
+                if (errorMessage.status == 403) {
+                    toastr.error("O email inserido não corresponde ao email cadastrado.");
+                }
+                else{
+                    toastr.error("Não foi possível alterar a nota. Tente novamente mais tarde.");
+                }
+                
             };
         };
     };
