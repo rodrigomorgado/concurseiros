@@ -9,6 +9,10 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
+.cursor-pointer{
+    cursor: pointer;
+}
+
 @media (max-width: 767px){ /* estilo especial para smartphone*/
     .additional-information{
         text-align:center;

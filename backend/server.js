@@ -18,7 +18,7 @@ app.use(express.static(cconf.web));
 app.get(endpoint.getRanking, function (req, res) {
     'use strict';
     var connection = mysql.createConnection(sconf.mysql);
-    connection.query('SELECT name, email, score FROM users', function (err, rows, fields) {
+    connection.query('SELECT id, name, email, score FROM users', function (err, rows, fields) {
         connection.end();
         if (!err) {
             //Returns the rows to the user with a status code 200
