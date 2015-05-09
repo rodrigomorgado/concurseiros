@@ -14,7 +14,7 @@
 
             var deferred = $q.defer();
 
-            $http.post("/api/updateScore", candidateData).then(successfullCallback, errorCallback);
+            $http.post("/api/editScore", candidateData).then(successfullCallback, errorCallback);
 
             function successfullCallback(data) {
                 deferred.resolve(data);

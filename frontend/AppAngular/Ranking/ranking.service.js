@@ -27,7 +27,7 @@
             var deferred = $q.defer();
 
             
-            $http.get('/api/getRanking', {}).success(successCallback).error(errorCallback);
+            $http.get('/api/getRanking').success(successCallback).error(errorCallback);
 
             function successCallback(data) {
                 deferred.resolve(data);
