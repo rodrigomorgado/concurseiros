@@ -13,6 +13,10 @@ input[type=number] {
     cursor: pointer;
 }
 
+html {
+    color: black;
+}
+
 @media (max-width: 767px){ /* estilo especial para smartphone*/
     .additional-information{
         text-align:center;
