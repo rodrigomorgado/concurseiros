@@ -13,8 +13,8 @@ input[type=number] {
     cursor: pointer;
 }
 
-html {
-    color: black;
+table, th, td {
+ border-color: black; !important
 }
 
 @media (max-width: 767px){ /* estilo especial para smartphone*/
