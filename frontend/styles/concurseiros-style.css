@@ -9,17 +9,18 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
+.cursor-pointer{
+    cursor: pointer;
+}
+
 @media (max-width: 767px){ /* estilo especial para smartphone*/
     .additional-information{
         text-align:center;
     }
 
     .div-trans{
-        margin-top: 10px;
-    }
-
-    .home h1{
-        padding-top: 70px;
+        margin-top: 70px;
+        min-height: 450px;
     }
 
 }
@@ -30,11 +31,7 @@ input[type=number] {
     }
 
     .div-trans{
-        margin-top: 10px;
-    }
-
-    .home h1{
-        padding-top: 70px;
+        margin-top: 70px;
     }
 }
 

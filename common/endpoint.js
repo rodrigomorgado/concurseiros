@@ -3,5 +3,5 @@ module.exports = {
     ranking : '/api/ranking',/* api do ranking GET recebe ranking */
     insertScore : '/api/insertScore',/* api para inserir score. Apenas POST */
     getRanking : '/api/getRanking', /* api para receberRanking. Apenas GET */
-    updateServer : '/api/updateServer' /* api para puxar master do github */
+    editScore: '/api/editScore' /* api para editar uma nota. Apenas POST */
 };
