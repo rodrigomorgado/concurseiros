@@ -13,36 +13,21 @@ input[type=number] {
     cursor: pointer;
 }
 
-table, th, td {
+/*table, th, td {
  border-color: black; !important
-}
+}*/
 
 @media (max-width: 767px){ /* estilo especial para smartphone*/
-    .additional-information{
-        text-align:center;
-    }
 
-    .div-trans{
-        margin-top: 70px;
-        min-height: 490px;
-    }
 
 }
 
 @media(min-width:768px) and (max-width:991px){ /* estilo especial para tablet */
-    .additional-information{
-        text-align:center;
-    }
 
-    .div-trans{
-        margin-top: 70px;
-    }
 }
 
 @media(min-width:992px) and (max-width: 1999px){ /* estilo especial para monitores pequenos */
-    .div-trans{
-        min-height: 450px;
-    }
+
 }
 
 @media(min-width:1200px){ /* estilo especial para monitores grandes */
