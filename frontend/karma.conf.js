@@ -23,9 +23,13 @@ module.exports = function(config) {
       "scripts/angular-route.min.js",
       "scripts/ui-bootstrap-tpls-0.12.1.min.js",
       "scripts/angular-toastr.tpls.min.js",
-      "scripts/wow.min.js",
+      "scripts/retina-1.1.0.js",
+      "scripts/jquery.hoverdir.js",
+      "scripts/jquery.hoverex.min.js",
       "scripts/jquery.prettyPhoto.js",
+      "scripts/jquery.isotope.min.js",
       "scripts/custom.js",
+      "scripts/angular-block-ui.min.js",
       
       //App angular file
       "AppAngular/app.module.js",
