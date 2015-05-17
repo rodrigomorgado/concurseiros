@@ -77,7 +77,7 @@
             $rootScope.$digest();
 
             //verificacao
-            expect($location.path).toHaveBeenCalledWith('/concursoXPTO/ranking');
+            expect($location.path).toHaveBeenCalledWith('/marinhaFuzileiros/ranking');
         });
 
     });

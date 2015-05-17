@@ -1,46 +1,6 @@
-﻿<!--<div class="home">
-    <div class="overlay">
-        <div class="container">
-            <div class="row ">
-                <div class="col-md-pull-3 col-md-push-3 col-md-6 col-sm-12 col-xs-12">
-                    <div class="div-trans text-center">
-                        <h2>Acompanhe sua classificação no ranking</h2>
-                        <h3><span>Concurso XPTO</span></h3>
-                        <form name="insertScore" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-
-                            <div class="form-group" ng-class="{'has-error': insertScore.name.$error.required && insertScore.name.$dirty }">
-                                <input type="text" name="name" class="form-control input-lg" placeholder="Nome" ng-model="insertScoreCtrl.candidateData.name" required >
-                            </div>
-
-                            <div class="form-group" ng-class="{'has-error': (insertScore.email.$error.required || insertScore.email.$error.email) && insertScore.email.$dirty }">
-                                <input type="email" name="email" class="form-control input-lg" placeholder="Email" ng-model="insertScoreCtrl.candidateData.email" required>
-                            </div>
-
-
-                            <div class="form-group" ng-class="{'has-error': (insertScore.score.$error.required || insertScore.score.$error.number || insertScore.score.$error.min) && insertScore.score.$dirty }">
-                                <input type="number" name="score" min="0" class="form-control input-lg" placeholder="Nota" ng-model="insertScoreCtrl.candidateData.score" required>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-block btn-lg" ng-click="insertScoreCtrl.insertUserScore()" ng-disabled="insertScore.$invalid">Enviar</button>
-                            </div>
-                            <div class="form-group">
-                                <a href="#/concursoXPTO/ranking" class="btn btn-info btn-block btn-lg">Ver Ranking</a>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>-->
-
-<div class="col-lg-8 col-lg-offset-2">
+﻿<div class="col-lg-8 col-lg-offset-2">
     <h1>Acompanhe sua classificação no ranking</h1>
-    <h3>Concurso Fuzileiros</h3>
+    <h3>Concurso Marinha - Fuzileiros</h3>
     <form name="insertScore" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="form-group" ng-class="{'has-error': insertScore.name.$error.required && insertScore.name.$dirty }">
             <input type="text" name="name" class="form-control input-lg" placeholder="Nome" ng-model="insertScoreCtrl.candidateData.name" required>
