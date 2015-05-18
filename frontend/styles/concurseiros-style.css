@@ -17,6 +17,21 @@ table, th, td {
  border-color: black; !important
 }
 
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #909;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #909;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #909;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #909;
+}
+
 @media (max-width: 767px){ /* estilo especial para smartphone*/
     .additional-information{
         text-align:center;
