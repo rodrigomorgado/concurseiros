@@ -5,18 +5,18 @@
     config.$inject = ['$routeProvider']
     function config($routeProvider) {
         $routeProvider
-          .when('/marinhaFuzileiros', {
+          .when('/2015/marinha/fuzileiros', {
               controller: 'InsertScoreController',
               templateUrl: 'AppAngular/InsertScore/insertScore.html',
               controllerAs: 'insertScoreCtrl'
           })
-          .when('/marinhaFuzileiros/ranking', {
+          .when('/2015/marinha/fuzileiros/ranking', {
               controller: 'RankingController',
               templateUrl: 'AppAngular/Ranking/ranking.html',
               controllerAs: 'rankingCtrl'
           })
           .otherwise({
-              redirectTo: '/marinhaFuzileiros'
+              redirectTo: '/2015/marinha/fuzileiros'
           });
     };
 })();

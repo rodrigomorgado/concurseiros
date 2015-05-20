@@ -77,7 +77,7 @@
             $rootScope.$digest();
 
             //verificacao
-            expect($location.path).toHaveBeenCalledWith('/marinhaFuzileiros/ranking');
+            expect($location.path).toHaveBeenCalledWith('/2015/marinha/fuzileiros/ranking');
         });
 
     });
