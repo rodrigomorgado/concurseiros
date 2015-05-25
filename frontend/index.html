@@ -1,90 +1,117 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Concurseiros</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/favicon.ico">
 
-    <link href="styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!--<link href="styles/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />-->
-    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="styles/angular-toastr.min.css" rel="stylesheet" type="text/css" />
-    <link href="styles/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <!--<link href="styles/animate.css" rel="stylesheet" />-->
-    <link href="styles/prettyPhoto.css" rel="stylesheet" type="text/css"/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link href="styles/template-style.css" rel="stylesheet" type="text/css" />
-    <link href="styles/angular-block-ui.min.css" rel="stylesheet" type="text/css" />
-    <link href="styles/concurseiros-style.css" rel="stylesheet" type="text/css" />
-</head>
+    <title>Concurseiro Brasil</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="styles/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/concurseiros-style.css" rel="stylesheet">
+    <link href="styles/angular-block-ui.min.css" rel="stylesheet" />
+    <link href="styles/angular-toastr.min.css" rel="stylesheet" />
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Google Analytics code -->
+    <script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	ga('create', 'UA-63218715-1', 'auto');
+	ga('send', 'pageview');
+    </script>
+  </head>
+
 <body ng-app="Concurseiros">
-
-    <div id="pre-div">
-        <div id="loader">
-        </div>
-    </div>
-    <!--/. PRELOADER END -->
-    <div class="navbar navbar-default navbar-fixed-top move-me ">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-                <a class="navbar-brand" href="#/concursoXPTO">
-                    <span class="navbar-brand-logo" alt="">Concurseiros</span>
-
-                </a>
+                <a class="navbar-brand" href="#/2015/marinha/fuzileiros">Concurseiro Brasil</a>
             </div>
-            <div class="navbar-collapse collapse move-me">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#/concursoXPTO">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#/concursoXPTO/ranking">
-                            Ranking
-                        </a>
+            <div class="navbar-collapse collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#/2015/marinha/fuzileiros">HOME</a></li>
+                    <li><a href="#/2015/marinha/fuzileiros/ranking">RANKING</a></li>
                 </ul>
-            </div>
-
+            </div><!--/.nav-collapse -->
         </div>
     </div>
-    <!--./ NAV BAR END -->
 
-    <div ng-view=""></div>
-
-    <!--./ CONTACT SECTION END -->
-    <div id="footser-end">
+    <div id="headerwrap">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    &copy; 2015 concurseiros.korvosoft.com | by <a href="http://www.binarytheme.com/" style="color:#fff;" target="_blank">binarytheme.com</a>
+                <div ng-view=""></div>
 
+            </div><!-- /row -->
+        </div> <!-- /container -->
+    </div><!-- /headerwrap -->
+
+    <div id="footerwrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Sobre</h4>
+                    <div class="hline-w"></div>
+                    <p>O Concurseiro Brasil nasceu de um projeto de alunos da UFRJ, para auxiliar os concurseiros que querem saber com antecedência como foi o seu resultado em relação aos demais.</p>
                 </div>
-            </div>
+                <div class="col-lg-6">
+                    <h4>Site</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                        concurseirobrasil.com.br<br />
+                        UFRJ <br/>
+                        Brasil
+                    </p>
+                </div>
 
-        </div>
-    </div>
-    <!--Initial scripts-->
-    <script type="text/javascript" src="scripts/angular.min.js"></script>
-    <script type="text/javascript" src="scripts/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="scripts/angular-route.min.js"></script>
-    <script type="text/javascript" src="scripts/ui-bootstrap-tpls-0.12.1.min.js"></script>
-    <script type="text/javascript" src="scripts/angular-toastr.tpls.min.js"></script>
-    <script type="text/javascript" src="scripts/wow.min.js"></script>
-    <script type="text/javascript" src="scripts/jquery.prettyPhoto.js"></script>
-    <script type="text/javascript" src="scripts/custom.js"></script>
-    <!-- END Initial Scripts-->
+            </div><!--/row -->
+        </div><!--/container -->
+    </div><!--/footerwrap -->
+
+    <!-- Initial scripts -->
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/jquery-1.11.2.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="scripts/angular-toastr.tpls.min.js"></script>
+    <script src="scripts/retina-1.1.0.js"></script>
+    <script src="scripts/jquery.hoverdir.js"></script>
+    <script src="scripts/jquery.hoverex.min.js"></script>
+    <script src="scripts/jquery.prettyPhoto.js"></script>
+    <script src="scripts/jquery.isotope.min.js"></script>
+    <script src="scripts/custom.js"></script>
 
     <!--BlockUI-->
     <script type="text/javascript" src="scripts/angular-block-ui.min.js"></script>
     <!--END BlockUI-->
-
     <!--App angular file-->
     <script type="text/javascript" src="AppAngular/app.module.js"></script>
     <!--END App angular file-->
@@ -102,5 +129,87 @@
     <script type="text/javascript" src="AppAngular/Ranking/Modal/editScore.controller.js"></script>
     <!-- END App Angular Controllers-->
 
+    <script>
+        // Portfolio
+        (function ($) {
+            "use strict";
+            var $container = $('.portfolio'),
+                $items = $container.find('.portfolio-item'),
+                portfolioLayout = 'fitRows';
+
+            if ($container.hasClass('portfolio-centered')) {
+                portfolioLayout = 'masonry';
+            }
+
+            $container.isotope({
+                filter: '*',
+                animationEngine: 'best-available',
+                layoutMode: portfolioLayout,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                },
+                masonry: {
+                }
+            }, refreshWaypoints());
+
+            function refreshWaypoints() {
+                setTimeout(function () {
+                }, 1000);
+            }
+
+            $('nav.portfolio-filter ul a').on('click', function () {
+                var selector = $(this).attr('data-filter');
+                $container.isotope({ filter: selector }, refreshWaypoints());
+                $('nav.portfolio-filter ul a').removeClass('active');
+                $(this).addClass('active');
+                return false;
+            });
+
+            function getColumnNumber() {
+                var winWidth = $(window).width(),
+                columnNumber = 1;
+
+                if (winWidth > 1200) {
+                    columnNumber = 5;
+                } else if (winWidth > 950) {
+                    columnNumber = 4;
+                } else if (winWidth > 600) {
+                    columnNumber = 3;
+                } else if (winWidth > 400) {
+                    columnNumber = 2;
+                } else if (winWidth > 250) {
+                    columnNumber = 1;
+                }
+                return columnNumber;
+            }
+
+            function setColumns() {
+                var winWidth = $(window).width(),
+				columnNumber = getColumnNumber(),
+				itemWidth = Math.floor(winWidth / columnNumber);
+
+                $container.find('.portfolio-item').each(function () {
+                    $(this).css({
+                        width: itemWidth + 'px'
+                    });
+                });
+            }
+
+            function setPortfolio() {
+                setColumns();
+                $container.isotope('reLayout');
+            }
+
+            $container.imagesLoaded(function () {
+                setPortfolio();
+            });
+
+            $(window).on('resize', function () {
+                setPortfolio();
+            });
+        })(jQuery);
+    </script>
 </body>
 </html>

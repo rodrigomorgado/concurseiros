@@ -16,7 +16,7 @@
 
             function successCallback(data) {
                 toastr.success('Nota inserida com sucesso!');
-                $location.path('/concursoXPTO/ranking');
+                $location.path('/2015/marinha/fuzileiros/ranking');
             };
 
             function errorCallback(error) {
