@@ -1,5 +1,0 @@
--- UP
-CREATE DATABASE IF NOT EXISTS concurseiro;
-
---DOWN
-DROP DATABASE IF EXISTS concurseiro;
