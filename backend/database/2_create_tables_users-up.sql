@@ -6,5 +6,3 @@ CREATE TABLE IF NOT EXISTS users (
     score DOUBLE
 );
 
---DOWN
-DROP TABLE IF EXISTS users
