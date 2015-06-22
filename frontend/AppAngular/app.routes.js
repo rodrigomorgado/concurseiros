@@ -26,7 +26,7 @@
                 controllerAs: 'TRTrankingCtrl'
             })
           .when('/concursos', {
-              controller: 'Concursos',
+              controller: 'ConcursosController',
               templateUrl: 'AppAngular/Concursos/concursos.html',
               controllerAs: 'concursosCtrl'
           })
