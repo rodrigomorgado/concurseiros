@@ -1,15 +1,15 @@
-﻿describe("InsertScore - Service", function () {
-    var $rootScope, $httpBackend, InsertScoreService, authRequestHandler;
+﻿describe("Concursos - Service", function () {
+    var $rootScope, $httpBackend, ConcursosService, authRequestHandler;
 
     beforeEach(module('Concurseiros'));
 
     describe("Correct returns from server", function () {
-        beforeEach(inject(function (_$rootScope_, _$httpBackend_, _InsertScoreService_) {
+        beforeEach(inject(function (_$rootScope_, _$httpBackend_, _RankingService_) {
             $rootScope = _$rootScope_;
             $httpBackend = _$httpBackend_;
-            InsertScoreService = _InsertScoreService_;
+            RankingService = _RankingService_;
 
-            authRequestHandler = $httpBackend.whenPOST('/api/insertScore').respond(200, 'ok');
+            authRequestHandler = $httpBackend.whenGET('/api/getConcursos').respond(200, []);
 
         }));
 
@@ -18,11 +18,11 @@
             $httpBackend.verifyNoOutstandingRequest();
         });
 
-        it("Insert Score", function () {
+        it("Get Concursos", function () {
             var serverReturn, error;
-            $httpBackend.expectPOST('/api/insertScore');
+            $httpBackend.expectGET('/api/getConcursos');
 
-            InsertScoreService.insertCandidateScore({name: 'teste', email: 'teste@teste.com', score: 10}).then(function (result) {
+            ConcursosService.getConcursos().then(function (result) {
                 serverReturn = result;
             }, function (errorMsg) {
                 error = errorMsg.data;
@@ -30,18 +30,19 @@
             $rootScope.$digest();
             $httpBackend.flush();
 
-            expect(serverReturn).toBe('ok');
+            //expect(serverReturn.length).toBe(4);
+            //expect(serverReturn instanceof Array).toBeTruthy();
 
         });
     });
 
     describe("Bad Requests", function () {
-        beforeEach(inject(function (_$rootScope_, _$httpBackend_, _InsertScoreService_) {
+        beforeEach(inject(function (_$rootScope_, _$httpBackend_, _RankingService_) {
             $rootScope = _$rootScope_;
             $httpBackend = _$httpBackend_;
-            InsertScoreService = _InsertScoreService_;
+            RankingService = _RankingService_;
 
-            authRequestHandler = $httpBackend.whenPOST('/api/insertScore').respond(500, 'Error');
+            authRequestHandler = $httpBackend.whenGET('/api/getConcursos').respond(500, 'Error');
 
         }));
 
@@ -50,11 +51,11 @@
             $httpBackend.verifyNoOutstandingRequest();
         });
 
-        it("Insert Score", function () {
+        it("Get Concursos", function () {
             var serverReturn, error;
-            $httpBackend.expectPOST('/api/insertScore');
+            $httpBackend.expectGET('/api/getConcursos');
 
-            InsertScoreService.insertCandidateScore({ name: 'teste', email: 'teste@teste.com', score: 10 }).then(function (result) {
+            ConcursosService.getConcursos().then(function (result) {
                 serverReturn = result;
             }, function (errorMsg) {
                 error = errorMsg;
