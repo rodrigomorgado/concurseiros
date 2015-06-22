@@ -141,5 +141,21 @@ app.post(endpoint.insertScoreTRT, function (req, res) {
     
 });
 
+//RECOVER CONCURSOS
+app.get(endpoint.getConcursos, function (req, res) {
+    'use strict';
+    var connection = mysql.createConnection(sconf.mysql);
+    connection.query('SELECT * FROM concursos', function (err, rows, fields) {
+        connection.end();
+        if (!err) {
+            //Returns the rows to the user with a status code 200
+            res.status(200).send(JSON.stringify(rows));
+        } else {
+            //Query failed. Send a status code 500
+            res.status(500);
+            res.end(err);
+        }
+	});
+});
 
 app.listen(sconf.port);
