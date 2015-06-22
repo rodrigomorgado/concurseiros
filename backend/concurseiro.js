@@ -39,7 +39,7 @@ app.get(endpoint.getRanking, function (req, res) {
 app.post(endpoint.insertScore, function (req, res) {
     'use strict';
     var connection = mysql.createConnection(sconf.mysql);
-    connection.query('SELECT count(*) as x FROM users WHERE email="' + req.body.email + '"', function (err, rows, fields) {
+    connection.query('SELECT count(*) as x FROM  WHERE email="' + req.body.email + '"', function (err, rows, fields) {
         if (!err) {
             //Returns the rows to the user with a status code 200
             console.log('select:');
@@ -58,17 +58,25 @@ app.post(endpoint.insertScore, function (req, res) {
                     }
                 });
             } else {
-                connection.query('INSERT INTO users SET ?', req.body, function (err) {
-                    connection.end();
+                var usuario ={};
+                usuario.nome = req.body.nome;
+                usuario.email = req.body.email;
+                
+                connection.query('INSERT INTO usuarios SET ?', usuario, function (err) {
                     console.log("insert:" + req.body.email);
                     if (!err) {
                         //Returns nothing to the user with a status code 200
+                        var pontuacao = {};
+                        
+                        connection.query('INSERT INTO usuarios SET ?', usuario, function (err) {
                         res.status(200).end('ok');
                     } else {
                         //Query failed. Send a status code 500
                         res.status(500);
                         res.end(err.toString());
                     }
+                    connection.end();
+                    
                 });
             }
         } else {
