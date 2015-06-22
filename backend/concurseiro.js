@@ -27,7 +27,7 @@ app.get(endpoint.getRanking, function (req, res) {
         } else {
             //Query failed. Send a status code 500
             res.status(500);
-            res.end(err);
+            res.end(err.toString());
         }
 	});
 });
@@ -51,7 +51,7 @@ app.post(endpoint.insertScore, function (req, res) {
                     } else {
                          //Query failed. Send a status code 500
                         res.status(500);
-                        res.end(err);
+                        res.end(err.toString());
                     }
                 });
             } else {
@@ -64,7 +64,7 @@ app.post(endpoint.insertScore, function (req, res) {
                     } else {
                         //Query failed. Send a status code 500
                         res.status(500);
-                        res.end(err);
+                        res.end(err.toString());
                     }
                 });
             }
@@ -72,7 +72,7 @@ app.post(endpoint.insertScore, function (req, res) {
             //Query failed. Send a status code 500
             connection.end();
             res.status(500);
-            res.end(err);
+            res.end(err.toString());
         }
 	});
     
@@ -90,7 +90,7 @@ app.get(endpoint.getRankingTRT, function (req, res) {
         } else {
             //Query failed. Send a status code 500
             res.status(500);
-            res.end(err);
+            res.end(err.toString());
         }
 	});
 });
@@ -114,7 +114,7 @@ app.post(endpoint.insertScoreTRT, function (req, res) {
                     } else {
                          //Query failed. Send a status code 500
                         res.status(500);
-                        res.end(err);
+                        res.end(err.toString());
                     }
                 });
             } else {
@@ -127,7 +127,7 @@ app.post(endpoint.insertScoreTRT, function (req, res) {
                     } else {
                         //Query failed. Send a status code 500
                         res.status(500);
-                        res.end(err);
+                        res.end(err.toString());
                     }
                 });
             }
@@ -135,7 +135,7 @@ app.post(endpoint.insertScoreTRT, function (req, res) {
             //Query failed. Send a status code 500
             connection.end();
             res.status(500);
-            res.end(err);
+            res.end(err.toString());
         }
 	});
     
@@ -153,7 +153,7 @@ app.get(endpoint.getConcursos, function (req, res) {
         } else {
             //Query failed. Send a status code 500
             res.status(500);
-            res.end(err);
+            res.end(err.toString());
         }
 	});
 });
@@ -169,7 +169,7 @@ app.get(endpoint.getRankingTRT, function (req, res) {
         } else {
             //Query failed. Send a status code 500
             res.status(500);
-            res.end(err);
+            res.end(err.toString());
         }
     });
 });
