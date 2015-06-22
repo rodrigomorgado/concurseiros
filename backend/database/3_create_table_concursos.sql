@@ -41,7 +41,7 @@ CREATE TABLE `concursos` (
 
 LOCK TABLES `concursos` WRITE;
 /*!40000 ALTER TABLE `concursos` DISABLE KEYS */;
-INSERT INTO `concursos` VALUES ('Marinha - Fuzileiros',1,'2015-05-26','2015/marinha/fuzileiros',0),('TRT - Juiz Substituto',1,'2015-06-28','2015/TRTRJ/juiz-substituto',1);
+INSERT INTO `concursos` VALUES ('Marinha - Fuzileiros',0,'2015-05-26','2015/marinha/fuzileiros',0),('TRT - Juiz Substituto',1,'2015-06-28','2015/TRTRJ/juiz-substituto',1);
 /*!40000 ALTER TABLE `concursos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -4,23 +4,24 @@
     <h1>Concursos Abertos</h1>
     ﻿<div class="col-lg-8 col-lg-offset-2">
 	<div class="list-group">
-	<tbody ng-repeat="concurso in concursosCtrl.concursos | orderBy: '-nome'">
-	  <a href="#/2015/TRTRJ/juiz-substituto" class="list-group-item">
-	    <h4 class="list-group-item-heading">{{concurso.nome}}</h4>
-	    <p class="list-group-item-text">Prova: 28/06/2015</p>
-	  </a>
-	</tbody>
+        <div ng-repeat="concurso in concursosCtrl.concursos">
+            <a ng-if="concurso.status == 1" ng-href="#/{{concurso.url}}" class="list-group-item">
+                <h4 class="list-group-item-heading">{{concurso.nome}}</h4>
+                <p class="list-group-item-text">{{concurso.data | date:'dd/MM/yyyy'}}</p>
+            </a>
+        </div>
 	</div>
 	</div>
 
     <h1>Concursos Encerrados</h1>
     ﻿<div class="col-lg-8 col-lg-offset-2">
 	<div class="list-group">
-	  <a href="#/2015/marinha/fuzileiros" class="list-group-item">
-	    <h4 class="list-group-item-heading">{{concurso.nome}}</h4>
-	    <p class="list-group-item-text">Prova: 26/05/2015</p>
-	  </a>
-	</div>
+        <div ng-repeat="concurso in concursosCtrl.concursos">
+            <a ng-if="concurso.status == 0" ng-href="#/{{concurso.url}}" class="list-group-item">
+                <h4 class="list-group-item-heading">{{concurso.nome}}</h4>
+                <p class="list-group-item-text">{{concurso.data | date:'dd/MM/yyyy'}}<</p>
+            </a>
+        </div>
 	</div>
 </div>
 </div>

@@ -20,7 +20,6 @@
 
             function successCallback(data) {
                 self.concursos = data;
-
             };
 
             function errorCallback(error) {
@@ -28,11 +27,7 @@
             };
         };
 
-            function getCandidateData() {
-                return candidateData;
-            };
 
-
-        };
+    };
 
 })();
