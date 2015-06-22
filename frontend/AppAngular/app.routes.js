@@ -15,13 +15,23 @@
               templateUrl: 'AppAngular/Ranking/ranking.html',
               controllerAs: 'rankingCtrl'
           })
-          .when('/2015/TRTRJ/juizSubstituto', {
+          .when('/2015/TRTRJ/juiz-substituto', {
               controller: 'TRTInsertScoreController',
-              templateUrl: 'AppAngular/TRT/InsertScore/insertScore.html',
+              templateUrl: 'AppAngular/TRTRJ/InsertScore/insertScore.html',
               controllerAs: 'TRTinsertScoreCtrl'
           })
+            .when('/2015/TRTRJ/juiz-substituto/ranking', {
+                controller: 'TRTRankingController',
+                templateUrl: 'AppAngular/TRTRJ/Ranking/ranking.html',
+                controllerAs: 'TRTrankingCtrl'
+            })
+          .when('/concursos', {
+              controller: 'Concursos',
+              templateUrl: 'AppAngular/Concursos/concursos.html',
+              controllerAs: 'concursosCtrl'
+          })
           .otherwise({
-              redirectTo: '/2015/marinha/fuzileiros'
+		    redirectTo: '/concursos'
           });
     };
 })();

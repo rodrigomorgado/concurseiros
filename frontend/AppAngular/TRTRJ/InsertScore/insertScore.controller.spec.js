@@ -77,7 +77,7 @@
             $rootScope.$digest();
 
             //verificacao
-            expect($location.path).toHaveBeenCalledWith('/2015/TRTRJ/juizSubstituto/ranking');
+            expect($location.path).toHaveBeenCalledWith('/2015/TRTRJ/juiz-substituto/ranking');
         });
 
     });

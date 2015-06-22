@@ -1,9 +1,9 @@
 ﻿(function () {
-    angular.module('Concurseiros').service('TRTInsertScoreService', TRTInsertScoreService);
+    angular.module('Concurseiros').service('InsertScoreService', InsertScoreService);
 
-    TRTInsertScoreService.$inject = ['$http', '$q'];
+    InsertScoreService.$inject = ['$http', '$q'];
 
-    function TRTInsertScoreService($http, $q) {
+    function InsertScoreService($http, $q) {
 
         //definicao dos metodos do servico
         var service = {
@@ -16,7 +16,7 @@
         function insertCandidateScore(candidateData) {
             var deferred = $q.defer();
 
-            $http.post('/api/TRT/insertScore', candidateData).success(successfulCallback).error(errorCallback);
+            $http.post('/api/insertScore', candidateData).success(successfulCallback).error(errorCallback);
 
             function successfulCallback(data) {
                 deferred.resolve(data);
