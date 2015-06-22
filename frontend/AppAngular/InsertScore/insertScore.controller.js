@@ -27,7 +27,8 @@
             InsertScoreService.getConcursoID({url: self.ano + '/' + self.nome + '/' + self.cargo}).then(successfulCallback, errorCallback);
 
             function successfulCallback(data) {
-                self.candidateData.idconcurso = data;
+                self.candidateData.idconcurso = data.idconcurso;
+                self.titulo = data.nome;
             };
 
             function errorCallback(data) {

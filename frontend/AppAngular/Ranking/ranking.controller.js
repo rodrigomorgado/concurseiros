@@ -31,8 +31,11 @@
 
             
 
-            function successCallback(idConcurso) {
-                RankingService.getRanking(idConcurso).then(successCallbackRanking, errorCallbackRanking);
+            function successCallback(data) {
+
+                self.titulo = data.nome;
+
+                RankingService.getRanking(data.data).then(successCallbackRanking, errorCallbackRanking);
 
                 function successCallbackRanking(data) {
                     self.candidateRanking = data;
