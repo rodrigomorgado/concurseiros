@@ -5,5 +5,5 @@ module.exports = {
     getRanking : '/api/getRanking', /* api para receberRanking. Apenas GET */
     editScore: '/api/editScore', /* api para editar uma nota. Apenas POST */
     insertScoreTRT: '', /*api TRT inserir nota */
-    getRankingTRT: '', /*api TRT recuperar nota */
+    getRankingTRT: '' /*api TRT recuperar nota */
 };
