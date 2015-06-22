@@ -30,6 +30,11 @@
               templateUrl: 'AppAngular/Concursos/concursos.html',
               controllerAs: 'concursosCtrl'
           })
+          .when('/login', {
+              controller: 'LoginController',
+              templateUrl: 'AppAngular/Login/login.html',
+              controllerAs: 'loginCtrl'
+          })
           .otherwise({
 		    redirectTo: '/concursos'
           });
