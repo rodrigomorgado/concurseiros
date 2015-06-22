@@ -40,16 +40,19 @@ module.exports = function(config) {
       //App Angular Services
       "AppAngular/InsertScore/insertScore.service.js",
       "AppAngular/Ranking/ranking.service.js",
+      "AppAngular/TRT/insertScore/insertScore.service.js",
       
       //App Angular Controllers
       "AppAngular/InsertScore/insertScore.controller.js",
       "AppAngular/Ranking/ranking.controller.js",
+      "AppAngular/TRT/insertScore/insertScore.controller.js",
       
       //Tests
       "AppAngular/InsertScore/insertScore.controller.spec.js",
       "AppAngular/InsertScore/insertScore.service.spec.js",
       "AppAngular/Ranking/ranking.controller.spec.js",
       "AppAngular/Ranking/ranking.service.spec.js",
+      "AppAngular/TRT/insertScore/insertScore.controller.spec.js",
     ],
 
 

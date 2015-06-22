@@ -15,6 +15,11 @@
               templateUrl: 'AppAngular/Ranking/ranking.html',
               controllerAs: 'rankingCtrl'
           })
+          .when('/2015/TRTRJ/juizSubstituto', {
+              controller: 'TRTInsertScoreController',
+              templateUrl: 'AppAngular/TRT/InsertScore/insertScore.html',
+              controllerAs: 'TRTinsertScoreCtrl'
+          })
           .otherwise({
               redirectTo: '/2015/marinha/fuzileiros'
           });
