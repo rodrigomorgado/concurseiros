@@ -9,8 +9,6 @@
         //definicao dos objetos bindados e metodos do controller
         self.candidateRanking = [];
 
-        self.editScore = editScore;
-
         if ($routeParams.ano) {
             self.ano = $routeParams.ano;
         }
@@ -33,8 +31,11 @@
 
             
 
-            function successCallback(idConcurso) {
-                RankingService.getRanking(idConcurso).then(successCallbackRanking, errorCallbackRanking);
+            function successCallback(data) {
+
+                self.titulo = data.nome;
+
+                RankingService.getRanking(data.idconcurso).then(successCallbackRanking, errorCallbackRanking);
 
                 function successCallbackRanking(data) {
                     self.candidateRanking = data;
