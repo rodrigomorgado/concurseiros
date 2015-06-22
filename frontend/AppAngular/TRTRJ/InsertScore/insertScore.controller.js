@@ -16,7 +16,7 @@
 
             function successCallback(data) {
                 toastr.success('Nota inserida com sucesso!');
-                $location.path('/2015/TRTRJ/juizSubstituto/ranking');
+                $location.path('/2015/TRTRJ/juiz-substituto/ranking');
             };
 
             function errorCallback(error) {

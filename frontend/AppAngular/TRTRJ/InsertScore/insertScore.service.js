@@ -16,7 +16,7 @@
         function insertCandidateScore(candidateData) {
             var deferred = $q.defer();
 
-            $http.post('/api/TRT/insertScore', candidateData).success(successfulCallback).error(errorCallback);
+            $http.post('/api/TRTRJ/insertScore', candidateData).success(successfulCallback).error(errorCallback);
 
             function successfulCallback(data) {
                 deferred.resolve(data);
