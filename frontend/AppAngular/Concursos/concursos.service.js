@@ -5,6 +5,13 @@
 
     function ConcursosService($http, $q) {
 
+        var service = {
+            getConcursos: getConcursos
+        };
+
+        return service;
+
+
         // implementacao das funcoes do servico
         function getConcursos() {
             var deferred = $q.defer();
