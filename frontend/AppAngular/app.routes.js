@@ -26,9 +26,19 @@
                 controllerAs: 'TRTrankingCtrl'
             })
           .when('/concursos', {
-              controller: 'Concursos',
+              controller: 'ConcursosController',
               templateUrl: 'AppAngular/Concursos/concursos.html',
               controllerAs: 'concursosCtrl'
+          })
+          .when('/login', {
+              controller: 'LoginController',
+              templateUrl: 'AppAngular/Login/login.html',
+              controllerAs: 'loginCtrl'
+          })
+          .when('/cadastro', {
+              controller: 'CadastroController',
+              templateUrl: 'AppAngular/Cadastro/cadastro.html',
+              controllerAs: 'cadastroCtrl'
           })
           .otherwise({
 		    redirectTo: '/concursos'

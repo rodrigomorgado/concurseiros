@@ -1,6 +1,5 @@
 (function () {
     angular.module('Concurseiros').controller('ConcursosController', ConcursosController);
-
     ConcursosController.$inject = ['ConcursosService', 'toastr', '$anchorScroll', '$location']
 
     function ConcursosController(ConcursosService, toastr, $anchorScroll, $location, $modal) {
