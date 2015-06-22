@@ -30,57 +30,11 @@
         //spy para ver se o método será chamado
         spyOn($location, "path");
 
-/*        //define um objeto com os métodos da dependencia do controller que serao usados
-        InsertScoreService = {
-            insertCandidateScore: function () { }
-        };
 
-        toastr = {
-            success: function(valor){}
-        };
-
-        spyOn(toastr, "success");
-
-        //caso o controller chame um servico que faca uma requisicao http com uma promisse, colocar as linhas abaixo e, no teste desejado,
-        //fazer o resolve no deferred e chamar $rootScope.$digest, para mockar o return dele
-        defer = $q.defer();
-        spyOn(InsertScoreService, "insertCandidateScore").and.returnValue(defer.promise);
-*/
         //instancia o controller, com suas dependencias mockadas
         controller = $controller("ConcursosController", { ConcursosService: ConcursosService, $location: $location, toastr: toastr });
 
     });
 
-/*    //testes
-    describe("Testes de inserir uma nota", function () {
-
-        beforeEach(function () {
-            controller.insertUserScore();
-        });
-
-        it("Chama o service", function () {
-            //verificacao
-            expect(InsertScoreService.insertCandidateScore).toHaveBeenCalledWith({});
-        });
-
-        it('Chama o toastr', function () {
-            //linhas para que ele entre no 'then' do metodo do insertScoreService chamado no controller
-            defer.resolve({});
-            $rootScope.$digest();
-
-            //verificacao
-            expect(toastr.success).toHaveBeenCalledWith('Nota inserida com sucesso!');
-        });
-        it('Muda a rota para o ranking', function () {
-            //linhas para que ele entre no 'then' do metodo do insertScoreService chamado no controller
-            defer.resolve({});
-            $rootScope.$digest();
-
-            //verificacao
-            expect($location.path).toHaveBeenCalledWith('/2015/marinha/fuzileiros/ranking');
-        });
-
-    });
-*/
 
 });
