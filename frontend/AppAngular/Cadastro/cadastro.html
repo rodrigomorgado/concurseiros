@@ -1,0 +1,26 @@
+﻿<div class="col-lg-8 col-lg-offset-2">
+    <h1>Cadastro</h1>
+    <form name="cadastro" class=" col-md-offset-2 col-md-8  col-sm-12 ">
+
+        <div class="form-group" ng-class="{'has-error': (cadastro.email.$error.required || cadastro.email.$error.email) && cadastro.email.$dirty }">
+            <input type="email" name="email" class="form-control input-lg" placeholder="E-mail" ng-model="cadastroCtrl.cadastroData.email" required>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': (cadastro.emailConf.$error.required || cadastro.emailConf.$error.email) && cadastro.emailConf.$dirty }">
+            <input type="email" name="emailConf" class="form-control input-lg" placeholder="Repita e-mail" ng-model="cadastroCtrl.cadastroData.emailConf" required>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': cadastro.password.$error.required && cadastro.password.$dirty }">
+            <input type="password" name="password" class="form-control input-lg" placeholder="Senha" ng-model="cadastroCtrl.loginData.password" required>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': cadastro.passwordConf.$error.required && cadastro.passwordConf.$dirty }">
+            <input type="password" name="passwordConf" class="form-control input-lg" placeholder="Repita senha" ng-model="cadastroCtrl.cadastroData.passwordConf" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block btn-lg" ng-click="cadastroCtrl.login()" ng-disabled="cadastro.$invalid">Cadastrar</button>
+        </div>
+
+    </form>
+</div>

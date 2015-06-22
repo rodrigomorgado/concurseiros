@@ -35,6 +35,11 @@
               templateUrl: 'AppAngular/Login/login.html',
               controllerAs: 'loginCtrl'
           })
+          .when('/cadastro', {
+              controller: 'CadastroController',
+              templateUrl: 'AppAngular/Cadastro/cadastro.html',
+              controllerAs: 'cadastroCtrl'
+          })
           .otherwise({
 		    redirectTo: '/concursos'
           });
