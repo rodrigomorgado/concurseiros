@@ -43,6 +43,22 @@
 
         };
 
+        function getConcursoID(url) {
+            var deferred = $q.defer();
+
+            $http.post('/api/getConcursoID', url).success(successfulCallback).error(errorCallback);
+
+            function successfulCallback(data) {
+                deferred.resolve(data);
+            }
+
+            function errorCallback(error) {
+                deferred.reject(error);
+            }
+
+            return deferred.promise;
+        }
+
 
     };
 

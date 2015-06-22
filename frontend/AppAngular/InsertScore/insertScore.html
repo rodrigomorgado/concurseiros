@@ -1,6 +1,6 @@
 ﻿<div class="col-lg-8 col-lg-offset-2">
     <h1>Acompanhe sua classificação no ranking</h1>
-    <h3>Concurso Marinha - Fuzileiros</h3>
+    <h3>{{insertScoreCtrl.nome}}</h3>
     <form name="insertScore" class=" col-md-offset-2 col-md-8  col-sm-12 ">
         <div class="form-group" ng-class="{'has-error': insertScore.name.$error.required && insertScore.name.$dirty }">
             <input type="text" name="name" class="form-control input-lg" placeholder="Nome" ng-model="insertScoreCtrl.candidateData.name" required>

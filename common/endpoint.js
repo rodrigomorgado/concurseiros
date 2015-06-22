@@ -7,4 +7,5 @@ module.exports = {
     insertScoreTRT: '/api/TRTRJ/insertScore', /*api TRT inserir nota */
     getRankingTRT: '/api/TRTRJ/getRanking', /*api TRT recuperar nota */
     getConcursos: '/api/getConcursos', /*api recuperar concursos */
+    getConcursoID: '/api/getConcursoID', /*api pega id do concurso pla url dele */
 };

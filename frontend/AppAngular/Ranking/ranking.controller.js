@@ -1,15 +1,25 @@
 (function () {
     angular.module('Concurseiros').controller('RankingController', RankingController);
 
-    RankingController.$inject = ['RankingService', 'toastr', '$anchorScroll', '$location', '$modal']
+    RankingController.$inject = ['RankingService', 'toastr', '$anchorScroll', '$location', '$modal', '$routeParams']
 
-    function RankingController(RankingService, toastr, $anchorScroll, $location, $modal) {
+    function RankingController(RankingService, toastr, $anchorScroll, $location, $modal, $routeParams) {
         var self = this;
 
         //definicao dos objetos bindados e metodos do controller
         self.candidateRanking = [];
 
         self.editScore = editScore;
+
+        if ($routeParams.ano) {
+            self.ano = $routeParams.ano;
+        }
+        if ($routeParams.nome) {
+            self.nome = $routeParams.nome;
+        }
+        if ($routeParams.cargo) {
+            self.cargo = $routeParams.cargo;
+        }
 
         activate();
 
@@ -19,46 +29,27 @@
             $location.hash('rankingDiv');
             $anchorScroll();
 
-            RankingService.getRanking().then(successCallback, errorCallback);
+            RankingService.getConcursoID({ url: self.ano + '/' + self.nome + '/' + self.cargo }).then(successCallback, errorCallback);
 
-            function successCallback(data) {
-                self.candidateRanking = data;
+            
 
+            function successCallback(idConcurso) {
+                RankingService.getRanking(idConcurso).then(successCallbackRanking, errorCallbackRanking);
+
+                function successCallbackRanking(data) {
+                    self.candidateRanking = data;
+                };
+
+                function errorCallbackRanking() {
+                    toastr.error('Não foi possivel carregar o ranking desse concurso.');
+                }
+
+                
             };
 
             function errorCallback(error) {
                 toastr.error('Não foi possivel carregar o ranking desse concurso.');
             };
-        };
-
-        function editScore(candidateData) {
-
-            var modalOptions = {
-                templateUrl: 'AppAngular/Ranking/Modal/editScore.html',
-                controller: 'EditScoreController',
-                controllerAs: 'EditScoreCtrl',
-                resolve: {
-                    candidateData: getCandidateData,
-                }
-            };
-
-            var modalInstance = $modal.open(modalOptions);
-
-            modalInstance.result.then(editScoreCallback, closeModalCallback);
-
-            function editScoreCallback() {
-                activate();
-            };
-
-            function closeModalCallback() {
-                //do nothing
-            };
-
-            function getCandidateData() {
-                return candidateData;
-            };
-
-
         };
 
     }
