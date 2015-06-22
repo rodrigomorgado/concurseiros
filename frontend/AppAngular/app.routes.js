@@ -15,8 +15,14 @@
               templateUrl: 'AppAngular/Ranking/ranking.html',
               controllerAs: 'rankingCtrl'
           })
+          .when('/concursos', {
+              controller: 'Concursos',
+              templateUrl: 'AppAngular/Concursos/concursos.html',
+              controllerAs: 'concursosCtrl'
+          })
           .otherwise({
-              redirectTo: '/2015/marinha/fuzileiros'
+            //  redirectTo: '/2015/marinha/fuzileiros'
+		  redirectTo: '/concursos'
           });
     };
 })();
