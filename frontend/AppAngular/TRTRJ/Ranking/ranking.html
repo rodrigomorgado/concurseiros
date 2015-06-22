@@ -1,0 +1,29 @@
+<div class="home" id="rankingDiv">
+    <div class="overlay">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-12 col-md-12 head-text text-center">
+                    <h1 id="divDisp">Classificação - TRT/RJ - Juiz Substituto</h1>
+                    <table class="table table-bordered table-responsive ranking">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Posição</th>
+                                <th class="text-center">Nome do candidato</th>
+                                <th class="text-center">Nota obtida</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="candidate in TRTrankingCtrl.candidateRanking | orderBy: '-score'">
+                            <tr>
+                                <td>{{$index + 1}}</td>
+                                <td>{{candidate.name}}</td>
+                                <td>{{candidate.score}}</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

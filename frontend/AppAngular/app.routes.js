@@ -21,9 +21,9 @@
               controllerAs: 'TRTinsertScoreCtrl'
           })
             .when('/2015/TRTRJ/juiz-substituto/ranking', {
-                controller: 'TRTInsertScoreController',
-                templateUrl: 'AppAngular/TRTRJ/InsertScore/insertScore.html',
-                controllerAs: 'TRTinsertScoreCtrl'
+                controller: 'TRTRankingController',
+                templateUrl: 'AppAngular/TRTRJ/Ranking/ranking.html',
+                controllerAs: 'TRTrankingCtrl'
             })
           .otherwise({
               redirectTo: '/2015/marinha/fuzileiros'
