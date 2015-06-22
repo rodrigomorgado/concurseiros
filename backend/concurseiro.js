@@ -19,7 +19,10 @@ app.use(express.static(cconf.web));
 app.get(endpoint.getRanking, function (req, res) {
     'use strict';
     var connection = mysql.createConnection(sconf.mysql);
-    connection.query('SELECT id, name, email, score FROM users', function (err, rows, fields) {
+    var qs = 'SELECT usuario.nome as nome, pontuacao FROM concursos' +
+        ' JOIN usuarios JOIN pontuacao ON usuarios.idusuario = pontuacao.idusuario AND concursos.idconcursos = pontuacao.idconcursos' +
+        ' WHERE idconcurso="' + req.body.idconcurso + '"';
+    connection.query(qs, function (err, rows, fields) {
         connection.end();
         if (!err) {
             //Returns the rows to the user with a status code 200
@@ -78,69 +81,6 @@ app.post(endpoint.insertScore, function (req, res) {
     
 });
 
-//RECOVER TRT
-app.get(endpoint.getRankingTRT, function (req, res) {
-    'use strict';
-    var connection = mysql.createConnection(sconf.mysql);
-    connection.query('SELECT id, name, email, score FROM users_trt', function (err, rows, fields) {
-        connection.end();
-        if (!err) {
-            //Returns the rows to the user with a status code 200
-            res.status(200).send(JSON.stringify(rows));
-        } else {
-            //Query failed. Send a status code 500
-            res.status(500);
-            res.end(err.toString());
-        }
-	});
-});
-
-//CREATE TRT
-app.post(endpoint.insertScoreTRT, function (req, res) {
-    'use strict';
-    var connection = mysql.createConnection(sconf.mysql);
-    connection.query('SELECT count(*) as x FROM users_trt WHERE email="' + req.body.email + '"', function (err, rows, fields) {
-        if (!err) {
-            //Returns the rows to the user with a status code 200
-            console.log('select:');
-            console.log(rows[0].x );
-            if ( rows[0].x > 0 ) {
-                connection.query('UPDATE users_trt SET ?  WHERE email="' + req.body.email + '"', req.body, function (err) {
-                    connection.end();
-                    console.log("update:" + req.body.email );
-                    if (!err) {
-                         //Returns nothing to the user with a status code 200
-                        res.status(200).end('ok');
-                    } else {
-                         //Query failed. Send a status code 500
-                        res.status(500);
-                        res.end(err.toString());
-                    }
-                });
-            } else {
-                connection.query('INSERT INTO users_trt SET ?', req.body, function (err) {
-                    connection.end();
-                    console.log("insert:" + req.body.email);
-                    if (!err) {
-                        //Returns nothing to the user with a status code 200
-                        res.status(200).end('ok');
-                    } else {
-                        //Query failed. Send a status code 500
-                        res.status(500);
-                        res.end(err.toString());
-                    }
-                });
-            }
-        } else {
-            //Query failed. Send a status code 500
-            connection.end();
-            res.status(500);
-            res.end(err.toString());
-        }
-	});
-    
-});
-
 //RECOVER CONCURSOS
 app.get(endpoint.getConcursos, function (req, res) {
     'use strict';
@@ -158,14 +98,15 @@ app.get(endpoint.getConcursos, function (req, res) {
 	});
 });
 
-app.get(endpoint.getRankingTRT, function (req, res) {
+
+app.get(endpoint.getConcursoID, function (req, res) {
     'use strict';
     var connection = mysql.createConnection(sconf.mysql);
-    connection.query('SELECT id, name, email, score FROM users_trt', function (err, rows, fields) {
+    connection.query('SELECT idconcurso, nome FROM concursos WHERE url="' + req.body.url + '"', function (err, rows, fields) {
         connection.end();
         if (!err) {
             //Returns the rows to the user with a status code 200
-            res.status(200).send(JSON.stringify(rows));
+            res.status(200).send(JSON.stringify(rows[0]));
         } else {
             //Query failed. Send a status code 500
             res.status(500);
@@ -173,5 +114,6 @@ app.get(endpoint.getRankingTRT, function (req, res) {
         }
     });
 });
+
 
 app.listen(sconf.port);
