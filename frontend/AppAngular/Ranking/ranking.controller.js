@@ -9,8 +9,6 @@
         //definicao dos objetos bindados e metodos do controller
         self.candidateRanking = [];
 
-        self.editScore = editScore;
-
         if ($routeParams.ano) {
             self.ano = $routeParams.ano;
         }

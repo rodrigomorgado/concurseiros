@@ -7,7 +7,8 @@
 
         //definicao dos metodos do servico
         var service = {
-            getRanking: getRanking
+            getRanking: getRanking,
+            getConcursoID: getConcursoID
         };
 
         return service;
