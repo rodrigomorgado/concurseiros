@@ -14,7 +14,7 @@
         //implementacao dos metodos do controller
         function activate() {
 
-            $location.hash('rankingDiv');
+            $location.hash('headerwrap');
             $anchorScroll();
 
             TRTRankingService.getRanking().then(successCallback, errorCallback);
