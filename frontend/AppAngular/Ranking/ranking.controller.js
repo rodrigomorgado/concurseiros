@@ -35,7 +35,7 @@
 
                 self.titulo = data.nome;
 
-                RankingService.getRanking(data.data).then(successCallbackRanking, errorCallbackRanking);
+                RankingService.getRanking(data.idconcurso).then(successCallbackRanking, errorCallbackRanking);
 
                 function successCallbackRanking(data) {
                     self.candidateRanking = data;
