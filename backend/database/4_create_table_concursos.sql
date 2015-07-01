@@ -29,10 +29,10 @@ CREATE TABLE `concursos` (
   `status` int(1) DEFAULT NULL,
   `data` date DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
-  `idconcursos` int(11) NOT NULL,
-  PRIMARY KEY (`idconcursos`),
+  `idconcurso` int(11) NOT NULL,
+  PRIMARY KEY (`idconcurso`),
   UNIQUE KEY `url_UNIQUE` (`url`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

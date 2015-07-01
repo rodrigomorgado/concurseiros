@@ -13,8 +13,8 @@
         //implementacao dos metodos do controller
         function activate() {
 
-            $location.hash('concursosDiv');
-            $anchorScroll();
+     //       $location.hash('');
+     //       $anchorScroll();
 
             ConcursosService.getConcursos().then(successCallback, errorCallback);
 

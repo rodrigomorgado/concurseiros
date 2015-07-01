@@ -16,8 +16,8 @@
         //implementacao dos metodos do controller
         function activate() {
 
-            $location.hash('rankingDiv');
-            $anchorScroll();
+  //          $location.hash('rankingDiv');
+  //          $anchorScroll();
 
             RankingService.getRanking().then(successCallback, errorCallback);
 
